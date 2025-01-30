@@ -1,0 +1,19 @@
+FROM ubuntu:latest
+
+# Instalare pachete necesare
+RUN apt-get update && apt-get install -y \
+    apache2 \
+    php8.3 libapache2-mod-php8.3 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Activează modulul PHP
+RUN a2enmod php8.3
+
+# Copiază fișierele în container
+COPY . /var/www/html
+
+# Expune portul 80 pentru Apache
+EXPOSE 80
+
+# Rulează Apache în mod foreground
+CMD ["apachectl", "-D", "FOREGROUND"]
