@@ -1,0 +1,8 @@
+{
+    "name": "Docker Playground",
+    "image": "mcr.microsoft.com/devcontainers/docker",
+    "features": {
+      "docker-in-docker": "latest"
+    },
+    "postCreateCommand": "echo 'Welcome to Docker Codespace!'"
+  }
